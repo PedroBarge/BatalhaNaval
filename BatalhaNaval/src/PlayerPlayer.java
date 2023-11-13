@@ -1,6 +1,7 @@
 public class PlayerPlayer {
     Frame frame = new Frame();
 
-    public void startGame(){
+    public void startGamePP() {
+        frame.makeNewFrame();
     }
 }
