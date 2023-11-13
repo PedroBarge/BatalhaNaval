@@ -1,13 +1,12 @@
-import javax.sound.midi.Soundbank;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Frame {
-    Scanner scanner = new Scanner(System.in);
     String[][] frame = new String[5][5];
     String[][] framePlayer = new String[5][5];
 
-
+    //------------------------------------------------------------------//
+    // Frame Vazio
     public void makeNewFrame() {
         for (int i = 0; i < frame.length; i++) {
             for (int j = 0; j < frame.length; j++) {
@@ -15,8 +14,6 @@ public class Frame {
             }
         }
     }
-
-    //------------------------------------------------------------------//
     public void buildFrame() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -47,7 +44,7 @@ public class Frame {
         buildFrame();
     }
     //------------------------------------------------------------------//
-
+    //Player area
     public void makeNewFramePlayer() {
         for (int i = 0; i < framePlayer.length; i++) {
             for (int j = 0; j < framePlayer.length; j++) {
@@ -55,8 +52,7 @@ public class Frame {
             }
         }
     }
-
-    public void buildFramePlayer() {
+    public void buildFramePlayerVsCPU() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
         for (int i = 0; i < framePlayer.length; i++) {
@@ -67,15 +63,15 @@ public class Frame {
             System.out.println();
         }
     }
-
-    public void updateFramePlayer(int linePlayer,int columnPlayer) {
-        int countBoat = 0;
-
-        framePlayer[linePlayer][columnPlayer] = " O ";
-        buildFramePlayer();
-        countBoat++;
-
+    public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
+        if (frame[linePlayer][columnPlayer].equals(" O ")) {
+            System.out.println("ON THE BOAT");
+            framePlayer[linePlayer][columnPlayer] = " O ";
+        } else {
+            framePlayer[linePlayer][columnPlayer] = " X ";
+            System.out.println("You miss...");
+        }
+        buildFramePlayerVsCPU();
     }
     //------------------------------------------------------------------//
-
 }
