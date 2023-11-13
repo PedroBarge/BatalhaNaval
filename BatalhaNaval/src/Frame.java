@@ -27,6 +27,7 @@ public class Frame {
     }
 
     //------------------------------------------------------------------//
+    //Mapa do CPU
     public void updateFrameCPU() {
         Random rand = new Random();
 
