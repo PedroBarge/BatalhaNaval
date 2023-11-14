@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class CPUPlayer extends Frame {
@@ -13,7 +15,7 @@ public class CPUPlayer extends Frame {
         System.out.println("CPU");
         map.updateFrameCPU();
 
-        // constroi mapa do player
+        // constroi mapa do players
         System.out.println("Player guess");
         map.makeNewFramePlayer();
         map.buildFramePlayerVsCPU();

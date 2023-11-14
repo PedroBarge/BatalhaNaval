@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Frame {
     String[][] frame = new String[5][5];
     String[][] framePlayer = new String[5][5];
+    static Scanner scan = new Scanner(System.in);
 
     //------------------------------------------------------------------//
     // Frame Vazio
@@ -14,6 +15,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFrame() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -44,6 +46,7 @@ public class Frame {
         }
         buildFrame();
     }
+
     //------------------------------------------------------------------//
     //Player area
     public void makeNewFramePlayer() {
@@ -53,6 +56,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFramePlayerVsCPU() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -64,6 +68,7 @@ public class Frame {
             System.out.println();
         }
     }
+
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
         if (frame[linePlayer][columnPlayer].equals(" O ")) {
             System.out.println("ON THE BOAT");
@@ -74,5 +79,90 @@ public class Frame {
         }
         buildFramePlayerVsCPU();
     }
+
     //------------------------------------------------------------------//
+    //Frame player vs player
+    public void makeNewFramePlayer1() {
+        for (int i = 0; i < framePlayer.length; i++) {
+            for (int j = 0; j < framePlayer.length; j++) {
+                framePlayer[i][j] = " ~ ";
+            }
+        }
+    }
+    public void makeNewFramePlayer2() {
+        for (int i = 0; i < framePlayer.length; i++) {
+            for (int j = 0; j < framePlayer.length; j++) {
+                framePlayer[i][j] = " ~ ";
+            }
+        }
+    }
+    public void buildFramePlayer1() {
+        System.out.println(" 0  1  2  3  4 ");
+        System.out.println("---------------");
+        for (int i = 0; i < frame.length; i++) {
+            for (int j = 0; j < frame.length; j++) {
+                System.out.print(frame[i][j]);
+            }
+            System.out.println(" |" + i);
+            System.out.println();
+        }
+    }
+    public void buildFramePlayer2() {
+        System.out.println(" 0  1  2  3  4 ");
+        System.out.println("---------------");
+        for (int i = 0; i < framePlayer.length; i++) {
+            for (int j = 0; j < framePlayer.length; j++) {
+                System.out.print(framePlayer[i][j]);
+            }
+            System.out.println(" |" + i);
+            System.out.println();
+        }
+    }
+
+    public void updateFramePlayer1() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter the line you want a boat to have\nBoat number:" + (i + 1));
+            int player1Line = scan.nextInt();
+            System.out.println("Enter the column you want a boat to have\nBoat number:" + (i + 1));
+            int player1Column = scan.nextInt();
+            frame[player1Line][player1Column] = " O ";
+        }
+        buildFramePlayer1();
+    }
+
+    public void updateFramePlayer2() {
+        makeNewFramePlayer();
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Enter the line you want a boat to have\nBoat number:" + (i + 1));
+            int player2Line = scan.nextInt();
+            System.out.println("Enter the column you want a boat to have\nBoat number:" + (i + 1));
+            int player2Column = scan.nextInt();
+            framePlayer[player2Line][player2Column] = " O ";
+        }
+        buildFramePlayer2();
+    }
+
+
+
+    public void guessPlayer1(int linePlayer1, int columnPlayer1) {
+        if (framePlayer[linePlayer1][columnPlayer1].equals(" O ")) {
+            System.out.println("ON THE BOAT");
+            // trys1 frame[linePlayer1][columnPlayer1] = " O ";
+        } else {
+            frame[linePlayer1][columnPlayer1] = " X ";
+            System.out.println("You miss...");
+        }
+        buildFramePlayer1();
+    }
+    public void guessPlayer2(int linePlayer2, int columnPlayer2){
+        if (frame[linePlayer2][columnPlayer2].equals(" O ")) {
+            System.out.println("ON THE BOAT");
+            //trys2 framePlayer[linePlayer2][columnPlayer2] = " O ";
+        } else {
+            framePlayer[linePlayer2][columnPlayer2] = " X ";
+            System.out.println("You miss...");
+        }
+        buildFramePlayer2();
+    }
+
 }

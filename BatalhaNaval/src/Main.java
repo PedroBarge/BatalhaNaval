@@ -6,6 +6,9 @@ public class Main {
     static CPUPlayer cpuPlayer = new CPUPlayer();
 
     //------------------------------------------------------------------//
+    static PlayerPlayer playerVsPlayer= new PlayerPlayer();
+
+    //------------------------------------------------------------------//
     public static void main(String[] args) {
         int choiceMenu = 1;
         while (choiceMenu != 0) {
@@ -18,6 +21,7 @@ public class Main {
                     cpuPlayer.startCpuPlayer();
                     break;
                 case 2:
+                    playerVsPlayer.startGamePP();
                     break;
                 case 0:
                     System.out.println("Closing...");
