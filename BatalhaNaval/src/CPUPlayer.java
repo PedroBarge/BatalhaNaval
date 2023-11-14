@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CPUPlayer extends Frame {
@@ -21,15 +22,20 @@ public class CPUPlayer extends Frame {
 
         // começa o jogo
         while (boatsLeft > 0) {
-            System.out.println("Player guess");
-            System.out.print("Insert line ");
-            int linePlayer = scanner.nextInt();
-            System.out.print("Insert column ");
-            int columnPlayer = scanner.nextInt();
-            map.guessPlayerVsCPU(linePlayer, columnPlayer);
-            if (map.framePlayer[linePlayer][columnPlayer].equals(" O ")) {
-                boatsLeft--;
-                System.out.println("Boats left: " + boatsLeft +"\n");
+            try {
+                System.out.println("Player guess");
+                System.out.print("Insert line ");
+                int linePlayer = scanner.nextInt();
+                System.out.print("Insert column ");
+                int columnPlayer = scanner.nextInt();
+                map.guessPlayerVsCPU(linePlayer, columnPlayer);
+                if (map.framePlayer[linePlayer][columnPlayer].equals(" O ")) {
+                    boatsLeft--;
+                    System.out.println("Boats left: " + boatsLeft + "\n");
+                }
+            } catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
+                scanner.nextLine();
+                System.out.println("Please, only insert the right numbers\n");
             }
         }
     }
