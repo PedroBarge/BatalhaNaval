@@ -42,7 +42,7 @@ public class Frame {
 
             frame[line][column] = " O ";
         }
-        buildFrame();
+        //buildFrame();
     }
     //------------------------------------------------------------------//
     //Player area
