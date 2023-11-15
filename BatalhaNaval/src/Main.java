@@ -5,7 +5,6 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     //------------------------------------------------------------------//
     static CPUPlayer cpuPlayer = new CPUPlayer();
-
     //------------------------------------------------------------------//
     public static void main(String[] args) throws InterruptedException {
         int choiceMenu = 1;
@@ -42,7 +41,6 @@ public class Main {
         }
 
     }
-
     public static void cleanConsole() {
         for (int i = 0; i < 30; i++) {
             System.out.println();

@@ -1,10 +1,7 @@
 import java.util.Random;
-import java.util.Scanner;
-
 public class Frame {
     String[][] frame = new String[5][5];
     String[][] framePlayer = new String[5][5];
-
     //------------------------------------------------------------------//
     // Frame Vazio
     public void makeNewFrame() {
@@ -14,7 +11,6 @@ public class Frame {
             }
         }
     }
-
     public void buildFrame() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -26,7 +22,6 @@ public class Frame {
             System.out.println();
         }
     }
-
     //------------------------------------------------------------------//
     //Mapa do CPU
     public void updateFrameCPU() {
@@ -43,9 +38,7 @@ public class Frame {
 
             frame[line][column] = " O ";
         }
-        //buildFrame();
     }
-
     //------------------------------------------------------------------//
     //Player area
     public void makeNewFramePlayer() {
@@ -55,7 +48,6 @@ public class Frame {
             }
         }
     }
-
     public void buildFramePlayerVsCPU() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -67,7 +59,6 @@ public class Frame {
             System.out.println();
         }
     }
-
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
         int counter = 5;
         if (frame[linePlayer][columnPlayer].equals(" O ")) {
@@ -82,6 +73,5 @@ public class Frame {
         }
         buildFramePlayerVsCPU();
     }
-
     //------------------------------------------------------------------//
 }
