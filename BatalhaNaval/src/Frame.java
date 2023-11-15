@@ -14,6 +14,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFrame() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -44,6 +45,7 @@ public class Frame {
         }
         //buildFrame();
     }
+
     //------------------------------------------------------------------//
     //Player area
     public void makeNewFramePlayer() {
@@ -53,6 +55,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFramePlayerVsCPU() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -64,6 +67,7 @@ public class Frame {
             System.out.println();
         }
     }
+
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
         if (frame[linePlayer][columnPlayer].equals(" O ")) {
             System.out.println("ON THE BOAT");
@@ -73,6 +77,16 @@ public class Frame {
             System.out.println("You miss...");
         }
         buildFramePlayerVsCPU();
+    }
+
+    public void checkPlay(int linePlayer, int columnPlayer) {
+        String[][] checkArray = new String[5][5];
+        int line = 0;
+        int column = 0;
+        if (frame[linePlayer][columnPlayer] == null) {
+
+        }
+
     }
     //------------------------------------------------------------------//
 }
