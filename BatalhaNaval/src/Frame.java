@@ -69,9 +69,13 @@ public class Frame {
     }
 
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
+        int counter = 5;
         if (frame[linePlayer][columnPlayer].equals(" O ")) {
             System.out.println("ON THE BOAT");
             framePlayer[linePlayer][columnPlayer] = " O ";
+            counter--;
+            System.out.println(counter + " boats left");
+
         } else {
             framePlayer[linePlayer][columnPlayer] = " X ";
             System.out.println("You miss...");
@@ -79,14 +83,5 @@ public class Frame {
         buildFramePlayerVsCPU();
     }
 
-    public void checkPlay(int linePlayer, int columnPlayer) {
-        String[][] checkArray = new String[5][5];
-        int line = 0;
-        int column = 0;
-        if (frame[linePlayer][columnPlayer] == null) {
-
-        }
-
-    }
     //------------------------------------------------------------------//
 }

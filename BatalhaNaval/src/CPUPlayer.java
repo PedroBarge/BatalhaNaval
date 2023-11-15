@@ -38,5 +38,6 @@ public class CPUPlayer extends Frame {
                 System.out.println("Please, only insert the right numbers\n");
             }
         }
+        map.buildFrame();
     }
 }
