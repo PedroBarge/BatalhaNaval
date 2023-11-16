@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class Frame {
@@ -36,12 +36,13 @@ public class Frame {
             int line = rand.nextInt(frame.length);
             int column = rand.nextInt(frame[0].length);
 
-            while (frame[line][column] == " O ") {
+            while (Objects.equals(frame[line][column], " O ")) {
                 line = rand.nextInt(frame.length);
                 column = rand.nextInt(frame[0].length);
             }
             frame[line][column] = " O ";
         }
+        //buildFrame();
     }
 
     //------------------------------------------------------------------//
