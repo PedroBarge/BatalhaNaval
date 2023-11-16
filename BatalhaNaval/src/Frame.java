@@ -1,7 +1,10 @@
+import java.util.ArrayList;
 import java.util.Random;
+
 public class Frame {
     String[][] frame = new String[5][5];
     String[][] framePlayer = new String[5][5];
+
     //------------------------------------------------------------------//
     // Frame Vazio
     public void makeNewFrame() {
@@ -11,6 +14,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFrame() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -22,6 +26,7 @@ public class Frame {
             System.out.println();
         }
     }
+
     //------------------------------------------------------------------//
     //Mapa do CPU
     public void updateFrameCPU() {
@@ -35,10 +40,10 @@ public class Frame {
                 line = rand.nextInt(frame.length);
                 column = rand.nextInt(frame[0].length);
             }
-
             frame[line][column] = " O ";
         }
     }
+
     //------------------------------------------------------------------//
     //Player area
     public void makeNewFramePlayer() {
@@ -48,6 +53,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFramePlayerVsCPU() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -59,19 +65,17 @@ public class Frame {
             System.out.println();
         }
     }
+
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
-        int counter = 5;
         if (frame[linePlayer][columnPlayer].equals(" O ")) {
             System.out.println("ON THE BOAT");
             framePlayer[linePlayer][columnPlayer] = " O ";
-            counter--;
-            System.out.println(counter + " boats left");
-
         } else {
             framePlayer[linePlayer][columnPlayer] = " X ";
             System.out.println("You miss...");
         }
         buildFramePlayerVsCPU();
     }
+
     //------------------------------------------------------------------//
 }

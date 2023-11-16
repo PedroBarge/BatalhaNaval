@@ -13,6 +13,7 @@ public class CPUPlayer extends Frame {
         System.out.println("The CPU will make a map and the player need to guess all the boats");
         //System.out.println("CPU");
         map.updateFrameCPU();
+        //map.buildFrame();
 
         // constroi mapa do player
         System.out.println("Insert here your guess");
