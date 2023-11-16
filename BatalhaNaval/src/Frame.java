@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class Frame {
     String[][] frame = new String[5][5];
     String[][] framePlayer = new String[5][5];
+    String[][] trysFramePlayer1 = new String[5][5];
+    String[][] trysFramePlayer2 = new String[5][5];
     static Scanner scan = new Scanner(System.in);
 
     //------------------------------------------------------------------//
@@ -82,20 +84,44 @@ public class Frame {
 
     //------------------------------------------------------------------//
     //Frame player vs player
-    public void makeNewFramePlayer1() {
-        for (int i = 0; i < framePlayer.length; i++) {
-            for (int j = 0; j < framePlayer.length; j++) {
-                framePlayer[i][j] = " ~ ";
+    public void makeNewFrameTrysPlayer1() {
+        for (int i = 0; i < trysFramePlayer1.length; i++) {
+            for (int j = 0; j < trysFramePlayer1.length; j++) {
+                trysFramePlayer1[i][j] = " ~ ";
             }
         }
     }
-    public void makeNewFramePlayer2() {
-        for (int i = 0; i < framePlayer.length; i++) {
-            for (int j = 0; j < framePlayer.length; j++) {
-                framePlayer[i][j] = " ~ ";
+    public void makeNewFrameTrysPlayer2() {
+        for (int i = 0; i < trysFramePlayer2.length; i++) {
+            for (int j = 0; j < trysFramePlayer2.length; j++) {
+                trysFramePlayer2[i][j] = " ~ ";
             }
         }
     }
+    public void buildTrysFramePlayer1() {
+        System.out.println(" 0  1  2  3  4 ");
+        System.out.println("---------------");
+        for (int i = 0; i < trysFramePlayer1.length; i++) {
+            for (int j = 0; j < trysFramePlayer1.length; j++) {
+                System.out.print(trysFramePlayer1[i][j]);
+            }
+            System.out.println(" |" + i);
+            System.out.println();
+        }
+    }
+
+    public void buildTrysFramePlayer2() {
+        System.out.println(" 0  1  2  3  4 ");
+        System.out.println("---------------");
+        for (int i = 0; i < trysFramePlayer2.length; i++) {
+            for (int j = 0; j < trysFramePlayer2.length; j++) {
+                System.out.print(trysFramePlayer2[i][j]);
+            }
+            System.out.println(" |" + i);
+            System.out.println();
+        }
+    }
+
     public void buildFramePlayer1() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -107,6 +133,7 @@ public class Frame {
             System.out.println();
         }
     }
+
     public void buildFramePlayer2() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -142,27 +169,27 @@ public class Frame {
         buildFramePlayer2();
     }
 
-
-
     public void guessPlayer1(int linePlayer1, int columnPlayer1) {
         if (framePlayer[linePlayer1][columnPlayer1].equals(" O ")) {
             System.out.println("ON THE BOAT");
-            // trys1 frame[linePlayer1][columnPlayer1] = " O ";
+            trysFramePlayer1[linePlayer1][columnPlayer1] = " O ";
         } else {
-            frame[linePlayer1][columnPlayer1] = " X ";
             System.out.println("You miss...");
+            trysFramePlayer1[linePlayer1][columnPlayer1] = " X ";
+
         }
-        buildFramePlayer1();
+        buildTrysFramePlayer1();
     }
-    public void guessPlayer2(int linePlayer2, int columnPlayer2){
+
+    public void guessPlayer2(int linePlayer2, int columnPlayer2) {
         if (frame[linePlayer2][columnPlayer2].equals(" O ")) {
             System.out.println("ON THE BOAT");
-            //trys2 framePlayer[linePlayer2][columnPlayer2] = " O ";
+            trysFramePlayer2[linePlayer2][columnPlayer2] = " O ";
         } else {
-            framePlayer[linePlayer2][columnPlayer2] = " X ";
+            trysFramePlayer2[linePlayer2][columnPlayer2] = " X ";
             System.out.println("You miss...");
         }
-        buildFramePlayer2();
+        buildTrysFramePlayer2();
     }
 
 }

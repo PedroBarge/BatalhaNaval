@@ -20,31 +20,31 @@ public class PlayerPlayer {
         System.out.println("Player 2 Map");
         map.updateFramePlayer2();
 
-        while (boatsLeftPlayer1 > 0 && boatsLeftPlayer2 > 0) {
-            map.makeNewFramePlayer1();
+        map.makeNewFrameTrysPlayer1();
+        map.makeNewFrameTrysPlayer2();
+        while (boatsLeftPlayer1 > 0 && boatsLeftPlayer2 > 0 ) {
             System.out.println("Player 1 guess");
             System.out.print("Insert line ");
             int linePlayer1 = scan.nextInt();
             System.out.print("Insert column ");
             int columnPlayer1 = scan.nextInt();
             map.guessPlayer1(linePlayer1, columnPlayer1);
-            if (map.frame[linePlayer1][columnPlayer1].equals(" O ")) {
+            if (map.framePlayer[linePlayer1][columnPlayer1].equals(" O ")) {
                 boatsLeftPlayer1--;
                 System.out.println("Boats left: " + boatsLeftPlayer1 + "\n");
             }
-            map.makeNewFramePlayer2();
-            System.out.println("Player 2 guess");
-            System.out.print("Insert line ");
-            int linePlayer2 = scan.nextInt();
-            System.out.print("Insert column ");
-            int columnPlayer2 = scan.nextInt();
-            map.guessPlayer2(linePlayer2, columnPlayer2);
-            if (map.framePlayer[linePlayer2][columnPlayer2].equals(" 0 ")){
-                boatsLeftPlayer2--;
-                System.out.println("Boats left: " + boatsLeftPlayer2 + "\n");
+                System.out.println("Player 2 guess");
+                System.out.print("Insert line ");
+                int linePlayer2 = scan.nextInt();
+                System.out.print("Insert column ");
+                int columnPlayer2 = scan.nextInt();
+                map.guessPlayer2(linePlayer2, columnPlayer2);
+                if (map.frame[linePlayer2][columnPlayer2].equals(" O ")) {
+                    boatsLeftPlayer2--;
+                    System.out.println("Boats left: " + boatsLeftPlayer2 + "\n");
+                }
             }
-
         }
     }
-}
+
 
