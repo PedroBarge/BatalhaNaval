@@ -1,5 +1,5 @@
+import java.util.Objects;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Frame {
     String[][] frame = new String[5][5];
@@ -14,6 +14,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFrame() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -35,15 +36,15 @@ public class Frame {
             int line = rand.nextInt(frame.length);
             int column = rand.nextInt(frame[0].length);
 
-            while (frame[line][column] == " O ") {
+            while (Objects.equals(frame[line][column], " O ")) {
                 line = rand.nextInt(frame.length);
                 column = rand.nextInt(frame[0].length);
             }
-
             frame[line][column] = " O ";
         }
         //buildFrame();
     }
+
     //------------------------------------------------------------------//
     //Player area
     public void makeNewFramePlayer() {
@@ -53,6 +54,7 @@ public class Frame {
             }
         }
     }
+
     public void buildFramePlayerVsCPU() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -64,6 +66,7 @@ public class Frame {
             System.out.println();
         }
     }
+
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
         if (frame[linePlayer][columnPlayer].equals(" O ")) {
             System.out.println("ON THE BOAT");
@@ -74,5 +77,6 @@ public class Frame {
         }
         buildFramePlayerVsCPU();
     }
+
     //------------------------------------------------------------------//
 }
