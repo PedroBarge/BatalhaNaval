@@ -1,10 +1,8 @@
-import java.util.Scanner;
-
 public class PlayerPlayer {
-    Frame map = new Frame();
-    static Scanner scan = new Scanner(System.in);
+    Frame frame = new Frame();
 
     public void startGamePP() {
+
         int boatsLeftPlayer1 = 5;
         int boatsLeftPlayer2 = 5;
         map.makeNewFrame();
@@ -46,5 +44,6 @@ public class PlayerPlayer {
             }
         }
     }
-
-
+        frame.makeNewFrame();
+    }
+}

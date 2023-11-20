@@ -1,5 +1,5 @@
+import java.util.Objects;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Frame {
     String[][] frame = new String[5][5];
@@ -39,14 +39,13 @@ public class Frame {
             int line = rand.nextInt(frame.length);
             int column = rand.nextInt(frame[0].length);
 
-            while (frame[line][column] == " O ") {
+            while (Objects.equals(frame[line][column], " O ")) {
                 line = rand.nextInt(frame.length);
                 column = rand.nextInt(frame[0].length);
             }
-
             frame[line][column] = " O ";
         }
-        buildFrame();
+        //buildFrame();
     }
 
     //------------------------------------------------------------------//
@@ -83,6 +82,7 @@ public class Frame {
     }
 
     //------------------------------------------------------------------//
+
     //Frame player vs player
     public void makeNewFrameTrysPlayer1() {
         for (int i = 0; i < trysFramePlayer1.length; i++) {
@@ -191,5 +191,7 @@ public class Frame {
         }
         buildTrysFramePlayer2();
     }
+
+}
 
 }
