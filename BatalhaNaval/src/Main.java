@@ -6,6 +6,7 @@ public class Main {
     //------------------------------------------------------------------//
     static CPUPlayer cpuPlayer = new CPUPlayer();
     static PlayerPlayer playerPlayer = new PlayerPlayer();
+
     //------------------------------------------------------------------//
     public static void main(String[] args) throws InterruptedException {
         int choiceMenu = 1;
@@ -24,6 +25,7 @@ public class Main {
                         scanner.nextLine();
                         break;
                     case 2:
+                        // este try ca
                         cleanConsole();
                         playerPlayer.startGamePP();
                         scanner.nextLine();
@@ -44,6 +46,7 @@ public class Main {
         }
 
     }
+
     public static void cleanConsole() {
         for (int i = 0; i < 30; i++) {
             System.out.println();

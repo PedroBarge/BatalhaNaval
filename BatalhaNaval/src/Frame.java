@@ -150,12 +150,15 @@ public class Frame {
     }
 
     public void updateFramePlayer1() {
+        scan.nextLine();
         for (int i = 0; i < 5; i++) {
-            System.out.println("Enter the line you want a boat to have\nBoat number:" + (i + 1));
+
+            System.out.println("Enter the line you want a boat to have\nBoat number: " + (i + 1));
             int player1Line = scan.nextInt();
-            System.out.println("Enter the column you want a boat to have\nBoat number:" + (i + 1));
+            System.out.println("Enter the column you want a boat to have\nBoat number: " + (i + 1));
             int player1Column = scan.nextInt();
             frame[player1Line][player1Column] = " O ";
+
         }
         buildFramePlayer1();
     }
