@@ -1,10 +1,10 @@
+import java.util.Scanner;
+
 public class PlayerPlayer {
-    Frame frame = new Frame();
+    static Scanner scan = new Scanner(System.in);
+    Frame map = new Frame();
 
     public void startGamePP() {
-<<<<<<< Updated upstream
-        frame.makeNewFrame();
-=======
 
         int boatsLeftPlayer1 = 5;
         int boatsLeftPlayer2 = 5;
@@ -14,16 +14,15 @@ public class PlayerPlayer {
         System.out.println("The player1 and player2 will make a map and both players need to get all the boats");
         System.out.println("Player 1 Map");
         map.updateFramePlayer1();
-        cleanConsole();
         //constroi o mapa do player 2
+        for (int i = 0; i < 30; i++) {
+            System.out.println();
+        }
         System.out.println("Player 2 Map");
         map.updateFramePlayer2();
-        cleanConsole();
 
         map.makeNewFrameTrysPlayer1();
         map.makeNewFrameTrysPlayer2();
-
-        // atacar
         while (boatsLeftPlayer1 > 0 && boatsLeftPlayer2 > 0) {
             System.out.println("Player 1 guess");
             System.out.print("Insert line ");
@@ -47,11 +46,5 @@ public class PlayerPlayer {
             }
         }
         map.makeNewFrame();
->>>>>>> Stashed changes
-    }
-    public static void cleanConsole() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
-        }
     }
 }

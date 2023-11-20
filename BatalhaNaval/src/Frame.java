@@ -1,9 +1,13 @@
 import java.util.Objects;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Frame {
     String[][] frame = new String[5][5];
     String[][] framePlayer = new String[5][5];
+    String[][] trysFramePlayer1 = new String[5][5];
+    String[][] trysFramePlayer2 = new String[5][5];
+    static Scanner scan = new Scanner(System.in);
 
     //------------------------------------------------------------------//
     // Frame Vazio
@@ -42,6 +46,7 @@ public class Frame {
             }
             frame[line][column] = " O ";
         }
+        //buildFrame();
     }
 
     //------------------------------------------------------------------//
@@ -65,7 +70,7 @@ public class Frame {
             System.out.println();
         }
     }
-    //------------------------------------------------------------------//
+
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
         if (frame[linePlayer][columnPlayer].equals(" O ")) {
             System.out.println("ON THE BOAT");
@@ -78,9 +83,6 @@ public class Frame {
     }
 
     //------------------------------------------------------------------//
-<<<<<<< Updated upstream
-}
-=======
 
     //Frame player vs player
     public void makeNewFrameTrysPlayer1() {
@@ -149,9 +151,9 @@ public class Frame {
 
     public void updateFramePlayer1() {
         for (int i = 0; i < 5; i++) {
-            System.out.println("Enter the line you want a boat to have\nBoat number: " + (i + 1));
+            System.out.println("Enter the line you want a boat to have\nBoat number:" + (i + 1));
             int player1Line = scan.nextInt();
-            System.out.println("Enter the column you want a boat to have\nBoat number: " + (i + 1));
+            System.out.println("Enter the column you want a boat to have\nBoat number:" + (i + 1));
             int player1Column = scan.nextInt();
             frame[player1Line][player1Column] = " O ";
         }
@@ -161,9 +163,9 @@ public class Frame {
     public void updateFramePlayer2() {
         makeNewFramePlayer();
         for (int i = 0; i < 5; i++) {
-            System.out.println("Enter the line you want a boat to have\nBoat number: " + (i + 1));
+            System.out.println("Enter the line you want a boat to have\nBoat number:" + (i + 1));
             int player2Line = scan.nextInt();
-            System.out.println("Enter the column you want a boat to have\nBoat number: " + (i + 1));
+            System.out.println("Enter the column you want a boat to have\nBoat number:" + (i + 1));
             int player2Column = scan.nextInt();
             framePlayer[player2Line][player2Column] = " O ";
         }
@@ -194,5 +196,3 @@ public class Frame {
     }
 
 }
-
->>>>>>> Stashed changes

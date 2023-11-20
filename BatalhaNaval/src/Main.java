@@ -5,12 +5,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     //------------------------------------------------------------------//
     static CPUPlayer cpuPlayer = new CPUPlayer();
-<<<<<<< Updated upstream
-=======
-
     static PlayerPlayer playerPlayer = new PlayerPlayer();
-
->>>>>>> Stashed changes
     //------------------------------------------------------------------//
     public static void main(String[] args) throws InterruptedException {
         int choiceMenu = 1;
@@ -30,11 +25,8 @@ public class Main {
                         break;
                     case 2:
                         cleanConsole();
-<<<<<<< Updated upstream
-=======
                         playerPlayer.startGamePP();
                         scanner.nextLine();
->>>>>>> Stashed changes
                         break;
                     case 0:
                         cleanConsole();
