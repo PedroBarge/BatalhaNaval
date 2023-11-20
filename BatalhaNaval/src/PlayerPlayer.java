@@ -14,12 +14,11 @@ public class PlayerPlayer {
         System.out.println("The player1 and player2 will make a map and both players need to get all the boats");
         System.out.println("Player 1 Map");
         map.updateFramePlayer1();
+        cleanConsole();
         //constroi o mapa do player 2
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
-        }
         System.out.println("Player 2 Map");
         map.updateFramePlayer2();
+        cleanConsole();
 
         map.makeNewFrameTrysPlayer1();
         map.makeNewFrameTrysPlayer2();
@@ -46,5 +45,11 @@ public class PlayerPlayer {
             }
         }
         map.makeNewFrame();
+    }
+
+    public static void cleanConsole() {
+        for (int i = 0; i < 30; i++) {
+            System.out.println();
+        }
     }
 }
