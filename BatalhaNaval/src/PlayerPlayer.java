@@ -1,5 +1,8 @@
+import java.util.Scanner;
+
 public class PlayerPlayer {
-    Frame frame = new Frame();
+    static Scanner scan = new Scanner(System.in);
+    Frame map = new Frame();
 
     public void startGamePP() {
 
@@ -20,7 +23,7 @@ public class PlayerPlayer {
 
         map.makeNewFrameTrysPlayer1();
         map.makeNewFrameTrysPlayer2();
-        while (boatsLeftPlayer1 > 0 && boatsLeftPlayer2 > 0 ) {
+        while (boatsLeftPlayer1 > 0 && boatsLeftPlayer2 > 0) {
             System.out.println("Player 1 guess");
             System.out.print("Insert line ");
             int linePlayer1 = scan.nextInt();
@@ -31,19 +34,17 @@ public class PlayerPlayer {
                 boatsLeftPlayer1--;
                 System.out.println("Boats left: " + boatsLeftPlayer1 + "\n");
             }
-                System.out.println("Player 2 guess");
-                System.out.print("Insert line ");
-                int linePlayer2 = scan.nextInt();
-                System.out.print("Insert column ");
-                int columnPlayer2 = scan.nextInt();
-                map.guessPlayer2(linePlayer2, columnPlayer2);
-                if (map.frame[linePlayer2][columnPlayer2].equals(" O ")) {
-                    boatsLeftPlayer2--;
-                    System.out.println("Boats left: " + boatsLeftPlayer2 + "\n");
-                }
+            System.out.println("Player 2 guess");
+            System.out.print("Insert line ");
+            int linePlayer2 = scan.nextInt();
+            System.out.print("Insert column ");
+            int columnPlayer2 = scan.nextInt();
+            map.guessPlayer2(linePlayer2, columnPlayer2);
+            if (map.frame[linePlayer2][columnPlayer2].equals(" O ")) {
+                boatsLeftPlayer2--;
+                System.out.println("Boats left: " + boatsLeftPlayer2 + "\n");
             }
         }
-    }
-        frame.makeNewFrame();
+        map.makeNewFrame();
     }
 }

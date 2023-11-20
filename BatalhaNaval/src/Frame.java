@@ -1,5 +1,6 @@
 import java.util.Objects;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Frame {
     String[][] frame = new String[5][5];
@@ -91,6 +92,7 @@ public class Frame {
             }
         }
     }
+
     public void makeNewFrameTrysPlayer2() {
         for (int i = 0; i < trysFramePlayer2.length; i++) {
             for (int j = 0; j < trysFramePlayer2.length; j++) {
@@ -98,6 +100,7 @@ public class Frame {
             }
         }
     }
+
     public void buildTrysFramePlayer1() {
         System.out.println(" 0  1  2  3  4 ");
         System.out.println("---------------");
@@ -194,4 +197,3 @@ public class Frame {
 
 }
 
-}
