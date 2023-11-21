@@ -5,7 +5,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     //------------------------------------------------------------------//
     static CPUPlayer cpuPlayer = new CPUPlayer();
-
+    static PlayerPlayer playerPlayer = new PlayerPlayer();
     //------------------------------------------------------------------//
     public static void main(String[] args) throws InterruptedException {
         int choiceMenu = 1;
@@ -25,6 +25,8 @@ public class Main {
                         break;
                     case 2:
                         cleanConsole();
+                        playerPlayer.startGamePP();
+                        scanner.nextLine();
 
                         break;
                     case 0:
