@@ -158,7 +158,6 @@ public class Frame {
             System.out.println("Enter the column you want a boat to have\nBoat number: " + (i + 1));
             int player1Column = scan.nextInt();
             frame[player1Line][player1Column] = " O ";
-
         }
         buildFramePlayer1();
     }

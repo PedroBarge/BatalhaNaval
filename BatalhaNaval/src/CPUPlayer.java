@@ -7,6 +7,7 @@ public class CPUPlayer extends Frame {
     Frame map = new Frame();
     static Scanner scanner = new Scanner(System.in);
     Set<String> playerGuesses = new HashSet<>();
+
     public void startCpuPlayer() throws InterruptedException {
         int boatsLeft = 5;
         //constroi o mapa do cpu
@@ -49,7 +50,7 @@ public class CPUPlayer extends Frame {
                 scanner.nextLine();
                 System.out.println("Please, only insert the right numbers\n");
             }
-            if (boatsLeft==0){
+            if (boatsLeft == 0) {
                 System.out.println("CPU map");
                 map.buildFrame();
                 Thread.sleep(2000);
