@@ -27,8 +27,6 @@ public class PlayerPlayer {
         map.makeNewFrameTrysPlayer2();
         while (boatsLeftPlayer1 > 0 && boatsLeftPlayer2 > 0) {
             try {
-
-
                 System.out.println("Player 1 guess");
                 System.out.print("Insert line ");
                 int linePlayer1 = scan.nextInt();
