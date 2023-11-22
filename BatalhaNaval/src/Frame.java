@@ -8,13 +8,16 @@ public class Frame {
     String[][] trysFramePlayer1 = new String[5][5];
     String[][] trysFramePlayer2 = new String[5][5];
     static Scanner scan = new Scanner(System.in);
+    public String shipEmoji = " \uD83D\uDEA2 ";
+    public String seaEmoji = " \uD83C\uDF0A ";
+    public String bombEmoji = " \uD83D\uDCA5 ";
 
     //------------------------------------------------------------------//
     // Frame Vazio
     public void makeNewFrame() {
         for (int i = 0; i < frame.length; i++) {
             for (int j = 0; j < frame.length; j++) {
-                frame[i][j] = " ~ ";
+                frame[i][j] = seaEmoji;
             }
         }
     }
@@ -40,11 +43,11 @@ public class Frame {
             int line = rand.nextInt(frame.length);
             int column = rand.nextInt(frame[0].length);
 
-            while (Objects.equals(frame[line][column], " O ")) {
+            while (Objects.equals(frame[line][column], shipEmoji)) {
                 line = rand.nextInt(frame.length);
                 column = rand.nextInt(frame[0].length);
             }
-            frame[line][column] = " O ";
+            frame[line][column] = shipEmoji;
         }
         //buildFrame();
     }
@@ -54,7 +57,7 @@ public class Frame {
     public void makeNewFramePlayer() {
         for (int i = 0; i < framePlayer.length; i++) {
             for (int j = 0; j < framePlayer.length; j++) {
-                framePlayer[i][j] = " ~ ";
+                framePlayer[i][j] = seaEmoji;
             }
         }
     }
@@ -72,11 +75,11 @@ public class Frame {
     }
 
     public void guessPlayerVsCPU(int linePlayer, int columnPlayer) {
-        if (frame[linePlayer][columnPlayer].equals(" O ")) {
+        if (frame[linePlayer][columnPlayer].equals(shipEmoji)) {
             System.out.println("ON THE BOAT");
-            framePlayer[linePlayer][columnPlayer] = " O ";
+            framePlayer[linePlayer][columnPlayer] = shipEmoji;
         } else {
-            framePlayer[linePlayer][columnPlayer] = " X ";
+            framePlayer[linePlayer][columnPlayer] = bombEmoji;
             System.out.println("You miss...");
         }
         buildFramePlayerVsCPU();
@@ -88,7 +91,7 @@ public class Frame {
     public void makeNewFrameTrysPlayer1() {
         for (int i = 0; i < trysFramePlayer1.length; i++) {
             for (int j = 0; j < trysFramePlayer1.length; j++) {
-                trysFramePlayer1[i][j] = " ~ ";
+                trysFramePlayer1[i][j] = seaEmoji;
             }
         }
     }
@@ -96,7 +99,7 @@ public class Frame {
     public void makeNewFrameTrysPlayer2() {
         for (int i = 0; i < trysFramePlayer2.length; i++) {
             for (int j = 0; j < trysFramePlayer2.length; j++) {
-                trysFramePlayer2[i][j] = " ~ ";
+                trysFramePlayer2[i][j] = seaEmoji;
             }
         }
     }
@@ -150,48 +153,59 @@ public class Frame {
     }
 
     public void updateFramePlayer1() {
-        scan.nextLine();
+        // TODO: 22/11/2023 Falta fazer trycatch de outofbound, aceita no linePlayer mas nao no columnPlayer.
         for (int i = 0; i < 5; i++) {
-
             System.out.println("Enter the line you want a boat to have\nBoat number: " + (i + 1));
             int player1Line = scan.nextInt();
             System.out.println("Enter the column you want a boat to have\nBoat number: " + (i + 1));
             int player1Column = scan.nextInt();
-            frame[player1Line][player1Column] = " O ";
+            if (frame[player1Line][player1Column].equals(shipEmoji)) {
+                System.out.println("You've already guessed this position. Try again.\n");
+                i-=1;
+            }else {
+                frame[player1Line][player1Column] = shipEmoji;
+            }
         }
         buildFramePlayer1();
+
     }
 
     public void updateFramePlayer2() {
+        // TODO: 22/11/2023 Falta fazer trycatch de outofbound, aceita no linePlayer mas nao no columnPlayer.
         makeNewFramePlayer();
         for (int i = 0; i < 5; i++) {
             System.out.println("Enter the line you want a boat to have\nBoat number:" + (i + 1));
             int player2Line = scan.nextInt();
             System.out.println("Enter the column you want a boat to have\nBoat number:" + (i + 1));
             int player2Column = scan.nextInt();
-            framePlayer[player2Line][player2Column] = " O ";
+            if (framePlayer[player2Line][player2Column].equals(shipEmoji)) {
+                System.out.println("You've already guessed this position. Try again.\n");
+                i-=1;
+            }else {
+                framePlayer[player2Line][player2Column] = shipEmoji;
+            }
         }
         buildFramePlayer2();
     }
 
     public void guessPlayer1(int linePlayer1, int columnPlayer1) {
-        if (framePlayer[linePlayer1][columnPlayer1].equals(" O ")) {
+        if (framePlayer[linePlayer1][columnPlayer1].equals(shipEmoji)) {
             System.out.println("ON THE BOAT");
-            trysFramePlayer1[linePlayer1][columnPlayer1] = " O ";
+            trysFramePlayer1[linePlayer1][columnPlayer1] = shipEmoji;
         } else {
             System.out.println("You miss...");
-            trysFramePlayer1[linePlayer1][columnPlayer1] = " X ";
+            trysFramePlayer1[linePlayer1][columnPlayer1] = bombEmoji;
 
         }
         buildTrysFramePlayer1();
     }
 
     public void guessPlayer2(int linePlayer2, int columnPlayer2) {
-        if (frame[linePlayer2][columnPlayer2].equals(" O ")) {
+        if (frame[linePlayer2][columnPlayer2].equals(shipEmoji)) {
             System.out.println("ON THE BOAT");
-            trysFramePlayer2[linePlayer2][columnPlayer2] = " O ";
+            trysFramePlayer2[linePlayer2][columnPlayer2] = shipEmoji;
         } else {
-            trysFramePlayer2[linePlayer2][columnPlayer2] = " X ";
+            trysFramePlayer2[linePlayer2][columnPlayer2] = bombEmoji;
             System.out.println("You miss...");
         }
         buildTrysFramePlayer2();

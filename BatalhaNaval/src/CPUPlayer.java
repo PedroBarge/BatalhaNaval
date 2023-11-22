@@ -41,7 +41,7 @@ public class CPUPlayer extends Frame {
                 map.guessPlayerVsCPU(linePlayer, columnPlayer);
                 playerGuesses.add(guess);
 
-                if (map.framePlayer[linePlayer][columnPlayer].equals(" O ")) {
+                if (map.framePlayer[linePlayer][columnPlayer].equals(map.shipEmoji)) {
                     boatsLeft--;
                     System.out.println("Boats left: " + boatsLeft + "\n");
                 }
