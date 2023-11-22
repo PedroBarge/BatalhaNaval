@@ -6,7 +6,10 @@ import java.util.Set;
 public class PlayerPlayer {
     static Scanner scan = new Scanner(System.in);
     Frame map = new Frame();
-    Set<String> player1Guesses = new HashSet<>();
+    // TODO: 22/11/2023 Paulo podes trocar isto para ArrayList por ex: ArrayList<String> playerGuesses = new ArrayList<>();
+    // como nós ainda não demos HashSet muda isso
+
+    Set<String> player1Guesses = new HashSet<>(); 
     Set<String> player2Guesses = new HashSet<>();
 
     public void startGamePP() throws InterruptedException {
