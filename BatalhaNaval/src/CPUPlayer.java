@@ -12,8 +12,11 @@ public class CPUPlayer extends Frame {
         int boatsLeft = 5;
         //constroi o mapa do cpu
         map.makeNewFrame();
+        System.out.println("Rules");
         System.out.println("CPU vs Player");
         System.out.println("The CPU will make a map and the player need to guess all the boats");
+        System.out.println("There is 5 boats on total.\nAll the boats only use one space on the map");
+        System.out.println();
         map.updateFrameCPU();
 
         // constroi mapa do player
@@ -26,7 +29,7 @@ public class CPUPlayer extends Frame {
         while (boatsLeft > 0) {
             try {
 
-                System.out.println("Player guess");
+                System.out.println("Player's attempts");
                 System.out.print("Insert line: ");
                 int linePlayer = scanner.nextInt();
                 System.out.print("Insert column: ");
@@ -55,7 +58,6 @@ public class CPUPlayer extends Frame {
                 map.buildFrame();
                 Thread.sleep(2000);
             }
-
         }
     }
 }
