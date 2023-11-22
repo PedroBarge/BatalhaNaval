@@ -29,7 +29,7 @@ public class PlayerPlayer {
 
         map.makeNewFrameTrysPlayer1();
         map.makeNewFrameTrysPlayer2();
-        while (boatsLeftPlayer1 > 0 && boatsLeftPlayer2 > 0) {
+        while (boatsLeftPlayer1 > 0 || boatsLeftPlayer2 > 0) {
             try {
                 boolean canContinuePlayer1 = false;
                 while (!canContinuePlayer1) {
