@@ -77,6 +77,17 @@ public class PlayerPlayer {
                 System.out.println("Please, only insert the right numbers\n");
                 Thread.sleep(2000);
             }
+            if (boatsLeftPlayer1 == 0) {
+                System.out.println("Player 2 map");
+                map.buildFramePlayer2();
+                Thread.sleep(2000);
+                break;
+            }else if(boatsLeftPlayer2 == 0) {
+                System.out.println("Player 1 map");
+                map.buildFramePlayer1();
+                Thread.sleep(2000);
+                break;
+            }
         }
         map.makeNewFrame();
     }
