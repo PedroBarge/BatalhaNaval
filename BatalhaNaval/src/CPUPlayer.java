@@ -1,24 +1,23 @@
-import java.util.HashSet;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 public class CPUPlayer extends Frame {
     Frame map = new Frame();
     static Scanner scanner = new Scanner(System.in);
-    Set<String> playerGuesses = new HashSet<>();
+    ArrayList<String> playerGuesses = new ArrayList<>();
 
     public void startCpuPlayer() throws InterruptedException {
         int boatsLeft = 5;
         //constroi o mapa do cpu
         map.makeNewFrame();
-        System.out.println("CPU vs Player");
-        System.out.println("The CPU will make a map and the player need to guess all the boats");
         map.updateFrameCPU();
+        Main.cleanConsole();
+        System.out.println(colors.bold + colors.yellow + "CPU vs Player");
+        System.out.println("The CPU will make a map and the player need to guess all the boats" + colors.resetColor);
+
 
         // constroi mapa do player
-        System.out.println("Insert here your guess");
-        System.out.println("Player guess");
+        System.out.println(colors.lightYellow + "Insert here your guess");
+        System.out.println("Player guess" + colors.resetColor);
         map.makeNewFramePlayer();
         map.buildFramePlayerVsCPU();
 
@@ -26,15 +25,15 @@ public class CPUPlayer extends Frame {
         while (boatsLeft > 0) {
             try {
 
-                System.out.println("Player guess");
+                System.out.println(colors.lightYellow + "Player guess");
                 System.out.print("Insert line: ");
                 int linePlayer = scanner.nextInt();
-                System.out.print("Insert column: ");
+                System.out.print("Insert column: " + colors.resetColor);
                 int columnPlayer = scanner.nextInt();
 
                 String guess = linePlayer + "," + columnPlayer;
                 if (playerGuesses.contains(guess)) {
-                    System.out.println("You've already guessed this position. Try again.\n");
+                    System.out.println(colors.red + "You've already guessed this position. Try again.\n" +colors.resetColor);
                     continue;
                 }
 
@@ -43,15 +42,15 @@ public class CPUPlayer extends Frame {
 
                 if (map.framePlayer[linePlayer][columnPlayer].equals(map.shipEmoji)) {
                     boatsLeft--;
-                    System.out.println("Boats left: " + boatsLeft + "\n");
+                    System.out.println(colors.blue + "Boats left: " + boatsLeft + "\n" + colors.resetColor);
                 }
 
             } catch (InputMismatchException | ArrayIndexOutOfBoundsException e) {
                 scanner.nextLine();
-                System.out.println("Please, only insert the right numbers\n");
+                System.out.println(colors.red + "Please, only insert the right numbers\n" + colors.resetColor);
             }
             if (boatsLeft == 0) {
-                System.out.println("CPU map");
+                System.out.println(colors.yellow + colors.bold + "CPU map" + colors.resetColor);
                 map.buildFrame();
                 Thread.sleep(2000);
             }
