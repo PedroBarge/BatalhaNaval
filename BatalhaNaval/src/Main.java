@@ -12,6 +12,7 @@ public class Main {
         while (choiceMenu != 0) {
             try {
                 cleanConsole();
+                showRules();
                 System.out.println("Menu");
                 System.out.println("1- CPU vs Player \n2- Player vs Player \n0- Close");
                 System.out.print("-> ");
@@ -50,5 +51,18 @@ public class Main {
         for (int i = 0; i < 30; i++) {
             System.out.println();
         }
+    }
+
+    public static void showRules() {
+        System.out.println("+------------------------------------------------------------------------------------+");
+        System.out.println("\t\t\t\t\t\t\t\t\tRULES");
+        System.out.println("\t\t\t\t\t\tThis game is for two players\n");
+        System.out.println("""
+                \tWhen you choose the option CPU vs Player:\s
+                \tThe CPU will make a map for him and you need to guess all the boats\s
+                \tWhen you choose the option Player vs Player:\s
+                \tBoth players will need to build their own map""");
+        System.out.println();
+        System.out.println("+------------------------------------------------------------------------------------+");
     }
 }
