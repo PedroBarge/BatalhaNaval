@@ -10,12 +10,12 @@ public class PlayerPlayer extends Frame {
 
         int boatsLeftPlayer1 = 5;
         int boatsLeftPlayer2 = 5;
-        map.makeNewFrame();
+        map.makeNewFrameTrysPlayer1();
         //constroi o mapa do player 1
         System.out.println(colors.yellow + colors.bold + "Player vs Player");
         System.out.println("The player1 and player2 will make a map and both players need to get all the boats" + colors.resetColor);
         System.out.println(colors.yellow + "Player 1 map" + colors.resetColor);
-        
+
         map.updateFramePlayer1();
 
         cleanConsole();

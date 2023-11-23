@@ -158,7 +158,7 @@ public class Frame {
 
     public void updateFramePlayer1() {
         // TODO: 22/11/2023 Falta fazer trycatch de outofbound, aceita no linePlayer mas nao no columnPlayer.
-
+        makeNewFrame();
         for (int i = 0; i < 5; i++) {
             System.out.println(colors.lightYellow + "Enter the line you want a boat to have\nBoat number: " + (i + 1));
             int player1Line = scan.nextInt();
