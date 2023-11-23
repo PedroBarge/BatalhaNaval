@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class Frame {
     public String bombEmoji = " \uD83D\uDCA5 ";
     //------------------------------------------------------------------//
     Colors colors = new Colors();
+
     //------------------------------------------------------------------//
     // Frame Vazio
     public void makeNewFrame() {
@@ -82,7 +84,7 @@ public class Frame {
             framePlayer[linePlayer][columnPlayer] = shipEmoji;
         } else {
             framePlayer[linePlayer][columnPlayer] = bombEmoji;
-            System.out.println(colors.orange+ "You miss..." + colors.resetColor);
+            System.out.println(colors.orange + "You miss..." + colors.resetColor);
         }
         buildFramePlayerVsCPU();
     }
@@ -156,6 +158,7 @@ public class Frame {
 
     public void updateFramePlayer1() {
         // TODO: 22/11/2023 Falta fazer trycatch de outofbound, aceita no linePlayer mas nao no columnPlayer.
+
         for (int i = 0; i < 5; i++) {
             System.out.println(colors.lightYellow + "Enter the line you want a boat to have\nBoat number: " + (i + 1));
             int player1Line = scan.nextInt();
@@ -163,13 +166,12 @@ public class Frame {
             int player1Column = scan.nextInt();
             if (frame[player1Line][player1Column].equals(shipEmoji)) {
                 System.out.println(colors.red + "You've already guessed this position. Try again.\n" + colors.resetColor);
-                i-=1;
-            }else {
+                i -= 1;
+            } else {
                 frame[player1Line][player1Column] = shipEmoji;
             }
         }
         buildFramePlayer1();
-
     }
 
     public void updateFramePlayer2() {
@@ -182,8 +184,8 @@ public class Frame {
             int player2Column = scan.nextInt();
             if (framePlayer[player2Line][player2Column].equals(shipEmoji)) {
                 System.out.println(colors.red + "You've already guessed this position. Try again.\n" + colors.resetColor);
-                i-=1;
-            }else {
+                i -= 1;
+            } else {
                 framePlayer[player2Line][player2Column] = shipEmoji;
             }
         }

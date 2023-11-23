@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PlayerPlayer extends Frame{
+public class PlayerPlayer extends Frame {
     static Scanner scan = new Scanner(System.in);
     Frame map = new Frame();
     ArrayList<String> player1Guesses = new ArrayList<>();
@@ -12,16 +12,18 @@ public class PlayerPlayer extends Frame{
         int boatsLeftPlayer2 = 5;
         map.makeNewFrame();
         //constroi o mapa do player 1
-        System.out.println(colors.yellow + colors.bold +"Player vs Player");
-        System.out.println("The player1 and player2 will make a map and both players need to get all the boats"+ colors.resetColor);
+        System.out.println(colors.yellow + colors.bold + "Player vs Player");
+        System.out.println("The player1 and player2 will make a map and both players need to get all the boats" + colors.resetColor);
         System.out.println(colors.yellow + "Player 1 map" + colors.resetColor);
-
+        
         map.updateFramePlayer1();
 
         cleanConsole();
         //constroi o mapa do player 2
         System.out.println(colors.yellow + "Player 2 map" + colors.resetColor);
+
         map.updateFramePlayer2();
+
         cleanConsole();
 
         map.makeNewFrameTrysPlayer1();
@@ -83,7 +85,7 @@ public class PlayerPlayer extends Frame{
                 map.buildFramePlayer2();
                 Thread.sleep(2000);
                 return;
-            }else if(boatsLeftPlayer2 == 0) {
+            } else if (boatsLeftPlayer2 == 0) {
                 System.out.println(colors.yellow + "Player 2 win !!");
                 System.out.println("Congratulation !!");
                 System.out.println("Player 1 map");
